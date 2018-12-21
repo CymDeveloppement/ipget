@@ -4,8 +4,8 @@ IPFS_MIN_GX_VERSION = 0.6
 IPFS_MIN_GX_GO_VERSION = 1.1
 
 dist_root=/ipfs/QmVQJ5mEGT38nYTfe3ZCCZPJhFDXTzBekUb8x3v8Pifugt
-gx_bin=bin/gx
-gx-go_bin=bin/gx-go
+gx_bin=bin/gx-v0.11.0
+gx-go_bin=bin/gx-go-v1.4.0
 
 # use things in our bin before any other system binaries
 export PATH := bin:$(PATH)
@@ -32,7 +32,7 @@ path_check:
 	@bin/check_go_path $(realpath $(shell pwd)) $(realpath $(GOPATH)/src/github.com/ipfs/ipget)
 
 deps: go_check gx_check path_check
-	${gx_bin} --verbose install --global
+	bin/gx --verbose install --global
 
 install: deps
 	go install
