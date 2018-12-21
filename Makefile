@@ -32,7 +32,7 @@ path_check:
 	@bin/check_go_path $(realpath $(shell pwd)) $(realpath $(GOPATH)/src/github.com/ipfs/ipget)
 
 deps: go_check gx_check path_check
-	bin/gx --verbose install --global
+	${gx_bin} --verbose install --global
 
 install: deps
 	go install
